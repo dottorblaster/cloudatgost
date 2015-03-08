@@ -23,7 +23,7 @@ func NewClient(email string, token string, httpClient *http.Client) *Client {
 		Login: email,
 		Token: token,
 		client: httpClient,
-		BaseURL: baseURL
+		BaseURL: baseURL,
 	}
 
 	return c
