@@ -2,6 +2,7 @@ package cloudatgost
 
 import(
 	"net/http"
+	"net/url"
 )
 
 type TemplateList struct {
@@ -15,8 +16,16 @@ type TemplateList struct {
 
 func (c *Client) ListTemplates() (*TemplateList) {
 	v := &TemplateList{}
-	url := c.BaseURL + "listtemplates.php?key=" + c.Token + "&login=" + c.Login
-	request, err := http.NewRequest("GET", url, nil)
+	Url, err := url.Parse(c.BaseURL)
+	if err != nil {
+		panic("boom! Busted :F")
+	}
+	Url.Path += "listtemplates.php"
+	parameters := url.Values{}
+	parameters.Add("key", c.Token)
+	parameters.Add("login", c.Login)
+	Url.RawQuery = parameters.Encode()
+	request, err := http.NewRequest("GET", Url.String(), nil)
 	if err != nil {
 		return nil
 	}
