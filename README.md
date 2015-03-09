@@ -1,5 +1,6 @@
 # cloudatGOst
 CloudAtCost API wrapper written in Go.
+
 API Version: `v1`
 
 ## References
