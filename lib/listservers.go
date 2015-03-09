@@ -52,6 +52,7 @@ func (c *Client) ListServers() (*ServerList) {
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
 	Url.RawQuery = parameters.Encode()
+
 	request, err := http.NewRequest("GET", Url.String(), nil)
 	if err != nil {
 		return nil

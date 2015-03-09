@@ -5,22 +5,30 @@ import(
 	"net/url"
 )
 
-type TemplateList struct {
+type TaskList struct {
 	Status string `json:"status"`
 	Time int `json:"time"`
+	API string `json:"api"`
+	Cid string `json:"cid"`
+	Action string `json:"action"`
 	Data []struct {
-		ID string `json:"id"`
-		Detail string `json:"detail"`
+		Cid string `json:"cid"`
+		Idf string `json:"idf"`
+		Serverid string `json:"serverid"`
+		Action string `json:"action"`
+		Status string `json:"status"`
+		Starttime string `json:"starttime"`
+		Finishtime string `json:"finishtime"`
 	} `json:"data"`
 }
 
-func (c *Client) ListTemplates() (*TemplateList) {
-	v := &TemplateList{}
+func (c *Client) ListTemplates() (*TaskList) {
+	v := &TaskList{}
 	Url, err := url.Parse(c.BaseURL)
 	if err != nil {
 		panic("boom! Busted :F")
 	}
-	Url.Path += "listtemplates.php"
+	Url.Path += "listtasks.php"
 	parameters := url.Values{}
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
