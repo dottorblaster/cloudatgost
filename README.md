@@ -7,7 +7,7 @@ https://github.com/cloudatcost/api
 
 ## Example
 To interact with the CaC API you simply need to initialize a new client, passing to it your API key and your login.
-__Example coming soon, I have the wrong laptop with me right now and I don't want to write those few lines from scratch._
+_Example coming soon, I have the wrong laptop with me right now and I don't want to write those few lines from scratch._
 
 ## License
 cloudatGOst is licensed under MIT License. (See LICENSE)
