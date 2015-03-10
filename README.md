@@ -8,7 +8,33 @@ https://github.com/cloudatcost/api
 
 ## Example
 To interact with the CaC API you simply need to initialize a new client, passing to it your API key and your login.
-_Example coming soon, I have the wrong laptop with me right now and I don't want to write those few lines from scratch._
+
+```go
+package main
+
+import (
+  "fmt"
+  "cloudatgost"
+)
+
+func main() {
+	// Initializes a new CloudAtCost client
+    client := cloudatgost.NewClient("dottorblaster@gmail.com", "myApiKey", nil)
+
+    // d is defined as a TemplateList, a type that maps the JSON
+    // response of the listtemplates.php endpoint
+    d := client.ListTemplates()
+
+    // c is defined as a ServerList, a type that maps the JSON
+    // response of the listservers.php endpoint
+    c := client.ListServers()
+
+    // e is defined as a CacConsole, a type that maps the JSON
+    // response of the console.php endpoint. You need to provide
+    // to it a string containing the server ID.
+    e := client.Console("254484472")
+  }
+```
 
 ## License
 cloudatGOst is licensed under MIT License. (See LICENSE)
