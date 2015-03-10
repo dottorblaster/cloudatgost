@@ -5,6 +5,8 @@ import(
 	"net/url"
 )
 
+// A ServerList represents an API response that contains a list
+// of servers owned by the user, with data about them.
 type ServerList struct {
 	Status string `json:"status"`
 	Time int `json:"time"`
@@ -41,19 +43,22 @@ type ServerList struct {
 	} `json:"data"`
 }
 
+// ListServers formulates an HTTP request to the listservers.php
+// endpoint and maps the JSON response through Do to a ServerList
+// structure.
 func (c *Client) ListServers() (*ServerList) {
 	v := &ServerList{}
-	Url, err := url.Parse(c.BaseURL)
+	URL, err := url.Parse(c.BaseURL)
 	if err != nil {
 		panic("boom! Busted :F")
 	}
-	Url.Path += "listservers.php"
+	URL.Path += "listservers.php"
 	parameters := url.Values{}
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
-	Url.RawQuery = parameters.Encode()
+	URL.RawQuery = parameters.Encode()
 
-	request, err := http.NewRequest("GET", Url.String(), nil)
+	request, err := http.NewRequest("GET", URL.String(), nil)
 	if err != nil {
 		return nil
 	}

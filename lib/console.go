@@ -6,6 +6,8 @@ import(
 	"net/url"
 )
 
+// A CacConsole represents an API response that contains an URL
+// to access a VNC console for the given machines' server ID.
 type CacConsole struct {
 	Status string `json:"status"`
 	Time int `json:"time"`
@@ -14,19 +16,21 @@ type CacConsole struct {
 	Console string `json:"console"`
 }
 
-func (c *Client) Console(serverId string) (*CacConsole) {
+// Console formulates an HTTP request to the console.php endpoint
+// and maps the JSON response through Do to a CacConsole structure.
+func (c *Client) Console(serverID string) (*CacConsole) {
 	v := &CacConsole{}
-	Url, err := url.Parse(c.BaseURL)
+	URL, err := url.Parse(c.BaseURL)
 	if err != nil {
 		panic("boom! Busted :F")
 	}
-	Url.Path += "console.php"
+	URL.Path += "console.php"
 	parameters := url.Values{}
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
-	parameters.Add("sid", serverId)
+	parameters.Add("sid", serverID)
 
-	request, err := http.NewRequest("POST", Url.String(), bytes.NewBufferString(parameters.Encode()))
+	request, err := http.NewRequest("POST", URL.String(), bytes.NewBufferString(parameters.Encode()))
 	request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	if err != nil {
 		return nil
