@@ -5,6 +5,8 @@ import(
 	"net/url"
 )
 
+// A TaskList represents an API response that contains a list
+// of tasks in operation.
 type TaskList struct {
 	Status string `json:"status"`
 	Time int `json:"time"`
@@ -22,6 +24,9 @@ type TaskList struct {
 	} `json:"data"`
 }
 
+// ListTasks formulates an HTTP request to the listtasks.php
+// endpoint and maps the JSON response through Do to a TaskList
+// structure.
 func (c *Client) ListTasks() (*TaskList) {
 	v := &TaskList{}
 	Url, err := url.Parse(c.BaseURL)
