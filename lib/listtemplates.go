@@ -5,6 +5,8 @@ import(
 	"net/url"
 )
 
+// A TemplateList represents an API response for machine templates
+// currently available.
 type TemplateList struct {
 	Status string `json:"status"`
 	Time int `json:"time"`
@@ -14,6 +16,9 @@ type TemplateList struct {
 	} `json:"data"`
 }
 
+// ListTemplates formulates an HTTP request to the listtemplates.php
+// endpoint and maps the JSON response through Do to a TemplateList
+// structure.
 func (c *Client) ListTemplates() (*TemplateList) {
 	v := &TemplateList{}
 	Url, err := url.Parse(c.BaseURL)
