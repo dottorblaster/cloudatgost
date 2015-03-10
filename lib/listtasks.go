@@ -29,17 +29,17 @@ type TaskList struct {
 // structure.
 func (c *Client) ListTasks() (*TaskList) {
 	v := &TaskList{}
-	Url, err := url.Parse(c.BaseURL)
+	URL, err := url.Parse(c.BaseURL)
 	if err != nil {
 		panic("boom! Busted :F")
 	}
-	Url.Path += "listtasks.php"
+	URL.Path += "listtasks.php"
 	parameters := url.Values{}
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
-	Url.RawQuery = parameters.Encode()
+	URL.RawQuery = parameters.Encode()
 
-	request, err := http.NewRequest("GET", Url.String(), nil)
+	request, err := http.NewRequest("GET", URL.String(), nil)
 	if err != nil {
 		return nil
 	}
