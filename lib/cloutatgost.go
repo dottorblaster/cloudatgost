@@ -1,3 +1,4 @@
+// CloudAtCost API wrapper written in Go.
 package cloudatgost
 
 import (
