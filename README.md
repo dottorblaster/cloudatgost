@@ -8,6 +8,11 @@ API Version: `v1`
 ## References
 https://github.com/cloudatcost/api
 
+## Installation
+```bash
+$ go get github.com/dottorblaster/cloudatgost
+```
+
 ## Example
 To interact with the CaC API you simply need to initialize a new client, passing to it your API key and your login.
 
@@ -15,8 +20,7 @@ To interact with the CaC API you simply need to initialize a new client, passing
 package main
 
 import (
-  "fmt"
-  "cloudatgost"
+  "github.com/dottorblaster/cloudatgost"
 )
 
 func main() {
