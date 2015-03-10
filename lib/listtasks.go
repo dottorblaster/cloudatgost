@@ -22,7 +22,7 @@ type TaskList struct {
 	} `json:"data"`
 }
 
-func (c *Client) ListTemplates() (*TaskList) {
+func (c *Client) ListTasks() (*TaskList) {
 	v := &TaskList{}
 	Url, err := url.Parse(c.BaseURL)
 	if err != nil {
