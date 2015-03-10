@@ -21,17 +21,17 @@ type TemplateList struct {
 // structure.
 func (c *Client) ListTemplates() (*TemplateList) {
 	v := &TemplateList{}
-	Url, err := url.Parse(c.BaseURL)
+	URL, err := url.Parse(c.BaseURL)
 	if err != nil {
 		panic("boom! Busted :F")
 	}
-	Url.Path += "listtemplates.php"
+	URL.Path += "listtemplates.php"
 	parameters := url.Values{}
 	parameters.Add("key", c.Token)
 	parameters.Add("login", c.Login)
-	Url.RawQuery = parameters.Encode()
+	URL.RawQuery = parameters.Encode()
 
-	request, err := http.NewRequest("GET", Url.String(), nil)
+	request, err := http.NewRequest("GET", URL.String(), nil)
 	if err != nil {
 		return nil
 	}
