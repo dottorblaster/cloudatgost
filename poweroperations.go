@@ -38,3 +38,15 @@ func (c *Client) Action(serverID string, operation string) (*PowerOp) {
 	c.Do(request, &v)
 	return v
 }
+
+func (c *Client) PowerOn(serverID string) (*PowerOp) {
+	return Action(serverID, "poweron")
+}
+
+func (c *Client) PowerOff(serverID string) (*PowerOp) {
+	return Action(serverID, "poweroff")
+}
+
+func (c *Client) Reboot(serverID string) (*PowerOp) {
+	return Action(serverID, "reset")
+}
