@@ -1,4 +1,4 @@
-// Package cloudatgost is a CloudAtCost API wrapper written in Go.
+// Package cloudatgost is a Go wrapper for CloudAtCost API.
 package cloudatgost
 
 import (
