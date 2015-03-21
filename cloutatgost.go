@@ -38,7 +38,7 @@ func NewClient(email string, token string, httpClient *http.Client) *Client {
 
 // Do is a shorthand for HTTP requests in the cloudatgost client domain.
 // The function takes an HTTP request, sends it and returns the API response,
-// decoded to the v, usually passed passed by reference.
+// decoded to the v, usually passed by reference.
 func (c *Client) Do(req *http.Request, v interface{}) (*http.Response, error) {
 	resp, err := c.client.Do(req)
 	if err != nil {
