@@ -49,17 +49,17 @@ func (c *Client) Action(serverID string, operation string) (*PowerOp) {
 // PowerOn is a shorthand function that performs a "poweron" request through
 // the Action function. It accepts a serverID as its unique parameter.
 func (c *Client) PowerOn(serverID string) (*PowerOp) {
-	return Action(serverID, "poweron")
+	return c.Action(serverID, "poweron")
 }
 
 // PowerOff is a shorthand function that performs a "poweroff" request through
 // the Action function. It accepts a serverID as its unique parameter.
 func (c *Client) PowerOff(serverID string) (*PowerOp) {
-	return Action(serverID, "poweroff")
+	return c.Action(serverID, "poweroff")
 }
 
 // Reboot is a shorthand function that performs a "reset" request through
 // the Action function. It accepts a serverID as its unique parameter.
 func (c *Client) Reboot(serverID string) (*PowerOp) {
-	return Action(serverID, "reset")
+	return c.Action(serverID, "reset")
 }
