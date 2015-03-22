@@ -1,4 +1,4 @@
-# cloudatGOst [![GoDoc](https://godoc.org/github.com/dottorblaster/cloudatgost?status.svg)](https://godoc.org/github.com/dottorblaster/cloudatgost)
+# cloudatGOst [![GoDoc](https://godoc.org/github.com/dottorblaster/cloudatgost?status.svg)](https://godoc.org/github.com/dottorblaster/cloudatgost) [![Build Status](https://travis-ci.org/dottorblaster/cloudatgost.svg?branch=master)](https://travis-ci.org/dottorblaster/cloudatgost)
 
 CloudAtCost API wrapper written in Go.
 
