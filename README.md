@@ -28,16 +28,16 @@ func main() {
 
     // d is defined as a TemplateList, a type that maps the JSON
     // response of the listtemplates.php endpoint
-    d := client.ListTemplates()
+    first := client.ListTemplates()
 
     // c is defined as a ServerList, a type that maps the JSON
     // response of the listservers.php endpoint
-    c := client.ListServers()
+    second := client.ListServers()
 
     // e is defined as a CacConsole, a type that maps the JSON
     // response of the console.php endpoint. You need to provide
     // to it a string containing the server ID.
-    e := client.Console("254484472")
+    third := client.Console("254484472")
   }
 ```
 
