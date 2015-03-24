@@ -24,7 +24,7 @@ import (
 
 func main() {
 	// Initializes a new CloudAtCost client
-    client := cloudatgost.NewClient("dottorblaster@gmail.com", "myApiKey", nil)
+    client := cloudatgost.NewClient("johndoe@example.com", "myApiKey", nil)
 
     // d is defined as a TemplateList, a type that maps the JSON
     // response of the listtemplates.php endpoint
