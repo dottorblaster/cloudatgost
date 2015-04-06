@@ -45,5 +45,4 @@ func main() {
 cloudatGOst is licensed under MIT License. (See LICENSE)
 
 ## TODO
-- Tests
 - Refactoring to make all of this stuff more readable
