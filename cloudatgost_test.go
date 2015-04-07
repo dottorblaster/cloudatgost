@@ -101,7 +101,7 @@ func TestAction (t *testing.T) {
 	if (op.Status != "ok" && op.Action != "poweron") {
 		t.Fatalf("placeholder did not work as expected.")
 	} else {
-		t.Logf("JSON output successfully deserialized to Action.")
+		t.Logf("JSON output successfully deserialized to PowerOp.")
 	}
 }
 
@@ -114,7 +114,7 @@ func TestPowerOn (t *testing.T) {
 	if (op.Status != "ok" && op.Action != "poweron") {
 		t.Fatalf("placeholder did not work as expected.")
 	} else {
-		t.Logf("JSON output successfully deserialized to Action.")
+		t.Logf("JSON output successfully deserialized to PowerOp.")
 	}
 }
 
@@ -127,7 +127,7 @@ func TestPowerOff (t *testing.T) {
 	if (op.Status != "ok" && op.Action != "poweroff") {
 		t.Fatalf("placeholder did not work as expected.")
 	} else {
-		t.Logf("JSON output successfully deserialized to Action.")
+		t.Logf("JSON output successfully deserialized to PowerOp.")
 	}
 }
 
@@ -140,6 +140,6 @@ func TestReboot (t *testing.T) {
 	if (op.Status != "ok" && op.Action != "reset") {
 		t.Fatalf("placeholder did not work as expected.")
 	} else {
-		t.Logf("JSON output successfully deserialized to Action.")
+		t.Logf("JSON output successfully deserialized to PowerOp.")
 	}
 }
