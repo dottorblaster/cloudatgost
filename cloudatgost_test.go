@@ -34,7 +34,9 @@ func TestNewClient (t *testing.T) {
 	defer server.Close()
 
 	if(client.Login != "johndoe@example.com" && client.Token != "myApiKey") {
-		t.Fail()
+		t.Fatalf("Failed to properly instantiate a new client.")
+	} else {
+		t.Logf("Successfully instantiated a new client.")
 	}
 }
 
@@ -45,7 +47,9 @@ func TestListServers (t *testing.T) {
 	servers := client.ListServers()
 
 	if (servers.Status != "ok" && servers.Data[0].ID != "2402939") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to ServerList.")
 	}
 }
 
@@ -56,7 +60,9 @@ func TestListTemplates (t *testing.T) {
 	templates := client.ListTemplates()
 
 	if (templates.Status != "ok" && templates.Data[0].Detail != "CentOS-7-64bit") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to TemplateList.")
 	}
 }
 
@@ -67,7 +73,9 @@ func TestListTasks (t *testing.T) {
 	tasks := client.ListTasks()
 
 	if (tasks.Status != "ok" && tasks.Data[0].Action != "reset") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to TaskList.")
 	}
 }
 
@@ -78,7 +86,9 @@ func TestConsole (t *testing.T) {
 	console := client.Console("1234")
 
 	if (console.Status != "ok" && console.Console != "http:\\/\\/panel.cloudatcost.com:12345\\/console.html?servername=123456&hostname=1.1.1.1&sshkey=123456&sha1hash=aBcDeFgG") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to Console.")
 	}
 }
 
@@ -89,7 +99,9 @@ func TestAction (t *testing.T) {
 	op := client.Action("1234", "poweron")
 
 	if (op.Status != "ok" && op.Action != "poweron") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to Action.")
 	}
 }
 
@@ -100,7 +112,9 @@ func TestPowerOn (t *testing.T) {
 	op := client.PowerOn("1234")
 
 	if (op.Status != "ok" && op.Action != "poweron") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to Action.")
 	}
 }
 
@@ -111,7 +125,9 @@ func TestPowerOff (t *testing.T) {
 	op := client.PowerOff("1234")
 
 	if (op.Status != "ok" && op.Action != "poweroff") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to Action.")
 	}
 }
 
@@ -122,6 +138,8 @@ func TestReboot (t *testing.T) {
 	op := client.Reboot("1234")
 
 	if (op.Status != "ok" && op.Action != "reset") {
-		t.Fail()
+		t.Fatalf("placeholder did not work as expected.")
+	} else {
+		t.Logf("JSON output successfully deserialized to Action.")
 	}
 }
